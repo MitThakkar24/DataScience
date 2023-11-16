@@ -1,9 +1,21 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import json
+
+with open('config.json','r') as c:
+    params = json.load(c)['params']
+
+local_server = True
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/blogwebdatabase'
+
+if local_server:
+    app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
+
+
 db = SQLAlchemy(app)
 
 
@@ -18,17 +30,17 @@ class Contact(db.Model):
 
 @app.route("/")
 def home():
-    return render_template('index.html')
+    return render_template('index.html',params=params)
 
 
 @app.route("/about")
 def about():
-    return render_template('about.html')
+    return render_template('about.html',params=params)
 
 
 @app.route("/post")
 def post():
-    return render_template('post.html')
+    return render_template('post.html',params=params)
 
 
 @app.route("/contact", methods=['GET', 'POST'])
@@ -45,7 +57,7 @@ def contact():
         db.session.add(entry)
         db.session.commit()
 
-    return render_template('contact.html')
+    return render_template('contact.html',params=params)
 
 
 if __name__ == "__main__":

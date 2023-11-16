@@ -1,0 +1,14 @@
+{
+  "params":
+  {
+    "local_server" : "True",
+    "local_uri" : "mysql://root:@localhost/blogwebdatabase",
+    "prod_uri" : "mysql://root:@localhost/blogwebdatabase",
+    "fb_url" : "https://facebook.com",
+    "twitter_url" : "https://twitter.com/",
+    "github_url" : "https://github.com/MitThakkar24"
+  }
+
+
+
+}
