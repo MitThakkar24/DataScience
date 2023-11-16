@@ -1,0 +1,3 @@
+flask mail
+flask
+flask-sqlalchemy
