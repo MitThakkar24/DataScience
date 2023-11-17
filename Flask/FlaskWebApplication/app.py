@@ -41,16 +41,16 @@ class Posts(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     slug = db.Column(db.String(12), nullable=False)
+    tagline = db.Column(db.String(12), nullable=False)
     content = db.Column(db.String(120), nullable=False)
     date = db.Column(db.String(12), nullable=True)
     img_file = db.Column(db.String(12), nullable=True)
 
 
-
 @app.route("/")
 def home():
-    posts = Posts.query.filter_by().all()
-    return render_template('index.html', params=params,posts=posts)
+    posts = Posts.query.filter_by().all()[0:params['number_of_post']]
+    return render_template('index.html', params=params, posts=posts)
 
 
 @app.route("/about")
@@ -79,9 +79,9 @@ def contact():
 
         db.session.add(entry)
         db.session.commit()
-        mail.send_message('New Message From Blog' +name,
+        mail.send_message('New Message From Blog' + name,
                           sender=email,
-                          recipients=[params['mail-reciver']],
+                          recipients=[params['mail-receiver']],
                           body=message + "\n" + phone
                           )
     return render_template('contact.html', params=params)
