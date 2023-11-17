@@ -58,6 +58,16 @@ def about():
     return render_template('about.html', params=params)
 
 
+@app.route('/dashboard', methods=['GET','POST'])
+def dashboard():
+    if request.method == 'POST':
+        # Redirect To Admin Panel
+        pass
+
+    else:
+        return render_template('login.html',params=params)
+
+
 @app.route("/post/<string:post_slug>", methods=['GET'])
 def post_route(post_slug):
 
