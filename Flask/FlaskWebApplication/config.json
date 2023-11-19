@@ -15,7 +15,7 @@
     "about-text" : "Hello, My name is Thakkar mit. I Am learning data Science and Flask",
     "number_of_post" : 3,
     "login_image":"loginsvg.svg",
-    "admin_user":"tmr",
+    "admin_user":"tmr@gmail.com",
     "admin_password": "iamtmr"
   }
 
