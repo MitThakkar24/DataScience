@@ -20,11 +20,18 @@
 
             <h1>basic Actions</h1>
                 <a href="/edit/0"><button class = "btn btn-primary">Add a New Post</button></a>
+                <a href="/logout"><button class = "btn btn-primary">Logout</button></a>
+
                 <hr>
  <h1>Upload A File</h1>
-    <div ckass='raw'>
-        i will add file uploader here
-    </div>
+    <form action="/uploader" method="post" enctype="multipart/form-data">
+        <input type="file" name="file1">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+
     <hr>
  <h1>Edit Post</h1>
   <table class="table table-hover">

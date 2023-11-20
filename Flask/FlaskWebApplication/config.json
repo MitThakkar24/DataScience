@@ -16,7 +16,8 @@
     "number_of_post" : 3,
     "login_image":"loginsvg.svg",
     "admin_user":"tmr@gmail.com",
-    "admin_password": "iamtmr"
+    "admin_password": "iamtmr",
+    "upload_location" : "C:\\Users\\Asus\\OneDrive\\Documents\\GitHub\\DataScience\\Flask\\FlaskWebApplication\\static\\assets\\img"
   }
 
 
