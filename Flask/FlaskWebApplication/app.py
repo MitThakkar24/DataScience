@@ -121,10 +121,29 @@ def edit(sno):
 @app.route('/uploader', methods=['GET', 'POST'])
 def uploader():
     if 'user' in session and session['user'] == params['admin_user']:
+
         if request.method == 'POST':
             f = request.files['file1']
-            f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
-            return "Upload Successfully"
+            if f.filename == '':
+                return 'Please Upload A file'
+            else:
+                f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
+                return "Upload Successfully"
+
+
+@app.route("/logout", methods=['GET'])
+def logout():
+    session.pop('user')
+    return redirect('/dashboard')
+
+
+@app.route("/delete/<string:sno>", methods=['GET', 'POST'])
+def delete(sno):
+    if 'user' in session and session['user'] == params['admin_user']:
+        post = Posts.query.filter_by(sno=sno).first()
+        db.session.delete(post)
+        db.session.commit()
+    return redirect('/dashboard')
 
 
 @app.route("/contact", methods=['GET', 'POST'])
