@@ -25,34 +25,34 @@
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label>Title</label>
-                <input type="text" class="form-control" placeholder="Title" id="title" name='title' required data-validation-required-message="Please enter your name.">
+                <input type="text" class="form-control" placeholder="Title" id="title" name='title' required data-validation-required-message="Please enter your name." value="{{post.title}}">
                 <p class="help-block text-danger"></p>
               </div>
             </div>
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label>Tagline</label>
-                <input type="text" class="form-control" placeholder="Tagline" id="tline" name="tline" required data-validation-required-message="Please enter your email address.">
+                <input type="text" class="form-control" placeholder="Tagline" id="tline" name="tline" required data-validation-required-message="Please enter your email address." value="{{post.tagline}}">
                 <p class="help-block text-danger"></p>
               </div>
             </div>
             <div class="control-group">
               <div class="form-group col-xs-12 floating-label-form-group controls">
                 <label>slug</label>
-                <input type="text" class="form-control" placeholder="slug" name="slug" id="slug" required data-validation-required-message="Please enter your phone number.">
+                <input type="text" class="form-control" placeholder="slug" name="slug" id="slug" required data-validation-required-message="Please enter your phone number." value="{{post.slug}}">
                 <p class="help-block text-danger"></p>
               </div>
             </div>
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label>content</label>
-                <textarea rows="5" class="form-control" placeholder="content" name = "content" id="content" required data-validation-required-message="Please enter a message."></textarea>
+                <textarea rows="5" class="form-control" placeholder="content" name = "content" id="content" required data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
                 <p class="help-block text-danger"></p>
               </div>
               <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label>img_file</label>
-                <input rows="5" class="form-control" placeholder="image filename" name = "img_file" id="img_file"  data-validation-required-message="Please enter a message."></input>
+                <input rows="5" class="form-control" placeholder="image filename" name = "img_file" id="img_file"  data-validation-required-message="Please enter a message." value="{{post.img_file}}"></input>
                 <p class="help-block text-danger"></p>
               </div>
             </div>
