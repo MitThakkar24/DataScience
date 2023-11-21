@@ -102,6 +102,8 @@ def dashboard():
             return render_template('dashboard.html', params=params, posts=posts)
         else:
             return render_template('login.html', params=params)
+    else:
+        return render_template('login.html', params=params)
 
 
 @app.route("/post/<string:post_slug>", methods=['GET'])
