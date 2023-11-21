@@ -57,16 +57,21 @@ def home():
     posts = Posts.query.filter_by().all()
     last = math.ceil(len(posts) / int(params['number_of_post']))
     page = request.args.get('page')
-    if (not str(page).isnumeric()):
+
+    if not str(page).isnumeric():
         page = 1
+
     page = int(page)
     posts = posts[(page - 1) * int(params['number_of_post']):(page - 1) * int(params['number_of_post']) + int(params['number_of_post'])]
+
     if page == 1:
         prev = "#"
         next = "/?page=" + str(page + 1)
+
     elif page == last:
         prev = "/?page=" + str(page - 1)
         next = "#"
+
     else:
         prev = "/?page=" + str(page - 1)
         next = "/?page=" + str(page + 1)
@@ -85,6 +90,7 @@ def dashboard():
     if 'user' in session and session['user'] == params['admin_user']:
         posts = Posts.query.all()
         return render_template('dashboard.html',  params=params, posts=posts)
+
     if request.method == 'POST':
         # Redirect To Admin Panel
         username = request.form.get('uname')
@@ -94,8 +100,8 @@ def dashboard():
             session['user'] = username
             posts = Posts.query.all()
             return render_template('dashboard.html', params=params, posts=posts)
-    else:
-        return render_template('login.html', params=params)
+        else:
+            return render_template('login.html', params=params)
 
 
 @app.route("/post/<string:post_slug>", methods=['GET'])
